@@ -1,0 +1,11 @@
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\bin\Debug\netcoreapp3.0\DatabaseClient.exe
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\bin\Debug\netcoreapp3.0\DatabaseClient.deps.json
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\bin\Debug\netcoreapp3.0\DatabaseClient.runtimeconfig.json
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\bin\Debug\netcoreapp3.0\DatabaseClient.runtimeconfig.dev.json
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\bin\Debug\netcoreapp3.0\DatabaseClient.dll
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\bin\Debug\netcoreapp3.0\DatabaseClient.pdb
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\obj\Debug\netcoreapp3.0\DatabaseClient.csprojAssemblyReference.cache
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\obj\Debug\netcoreapp3.0\DatabaseClient.AssemblyInfoInputs.cache
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\obj\Debug\netcoreapp3.0\DatabaseClient.AssemblyInfo.cs
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\obj\Debug\netcoreapp3.0\DatabaseClient.dll
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseClient\obj\Debug\netcoreapp3.0\DatabaseClient.pdb

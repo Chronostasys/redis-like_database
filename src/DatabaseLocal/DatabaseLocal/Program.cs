@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Timers;
 
 namespace DatabaseLocal
 {
@@ -23,7 +24,10 @@ namespace DatabaseLocal
     /// </summary>
     class Server
     {
-        BinaryFormatter binaryFormatter;
+        int i = 0;
+        int N = 5;
+        int M = 10;
+        Timer timer;
         HttpListener listener;
         Hashtable hashtable;
         //FileStream file;
@@ -36,7 +40,9 @@ namespace DatabaseLocal
         /// </summary>
         public Server()
         {
-            binaryFormatter = new BinaryFormatter();
+            timer = new Timer(M*1000);
+            timer.Elapsed += Ticker_Elapsed;
+            timer.Start();
             Console.WriteLine("Server Start!");
             //file = File.Open("save.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             //fileReader = new StreamReader(file);
@@ -48,64 +54,96 @@ namespace DatabaseLocal
             LoadFromFileAsync();
         }
         /// <summary>
+        /// added 2019/10/3
+        /// called by timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Ticker_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            this.i = 0;
+            this.Save2FileAsync();
+        }
+        /// <summary>
         /// Added 2019/10/1
         /// Build the server
         /// </summary>
         /// <returns></returns>
         public async Task BuildServer()
         {
+            if (i==N)
+            {
+                this.Save2FileAsync();
+                timer.Stop();
+                timer.Start();
+                i = 0;
+
+            }
             var context = await listener.GetContextAsync();
             var inStream = context.Request.InputStream;
             var outStream = context.Response.OutputStream;
-            var reader = new StreamReader(inStream);
-            var s = reader.ReadToEnd();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"receive:{s}");
-            var strs = s.Split(' ');
-            if (strs[0] == "set")
+            try
             {
-                if (strs.Length != 3)
+                var reader = new StreamReader(inStream);
+                var s = reader.ReadToEnd();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"receive:{s}");
+                var strs = s.Split(' ');
+                if (strs[0] == "set")
+                {
+                    if (strs.Length != 3)
+                    {
+                        ResponseAsync(outStream, " Illegal Input");
+                    }
+                    else
+                    {
+                        hashtable.Add(strs[1], strs[2]);
+                        ResponseAsync(outStream, "ok!");
+                        i++;
+                    }
+                }
+                else if (strs.Length != 2)
                 {
                     ResponseAsync(outStream, " Illegal Input");
                 }
-                else
+                else if (strs.Length==1&&strs[0]=="save")
                 {
-                    hashtable.Add(strs[1], strs[2]);
-                    ResponseAsync(outStream, "ok!");
-                    await Save2FileAsync();
-                }
-            }
-            else if (strs.Length != 2)
-            {
-                ResponseAsync(outStream, " Illegal Input");
-            }
-            else
-            {
-                if (strs[0] == "delete")
-                {
-                    hashtable.Remove(strs[1]);
-                    ResponseAsync(outStream, "ok!");
                     Save2FileAsync();
                 }
-                else if (strs[0] == "get")
+                else
                 {
-                    var re = hashtable[strs[1]];
-                    try
+                    if (strs[0] == "delete")
                     {
-                        await ResponseAsync(outStream, (string)re);
+                        hashtable.Remove(strs[1]);
+                        ResponseAsync(outStream, "ok!");
+                        i++;
                     }
-                    catch (Exception)
+                    else if (strs[0] == "get")
                     {
+                        var re = hashtable[strs[1]];
+                        try
+                        {
+                            await ResponseAsync(outStream, (string)re);
+                        }
+                        catch (Exception)
+                        {
 
-                        await ResponseAsync(outStream, "Null!");
+                            await ResponseAsync(outStream, "Null!");
+                        }
                     }
                 }
+                Console.ForegroundColor = ConsoleColor.White;
             }
-            Console.ForegroundColor = ConsoleColor.White;
+            catch (Exception e)
+            {
+                await ResponseAsync(outStream, e.Message);
+            }
         }
         /// <summary>
         /// Added 2019/10/1
         /// Response the requests
+        /// 2019/10/3
+        /// 添加M、N模式
         /// </summary>
         /// <param name="stream">The response stream</param>
         /// <param name="s">Response message</param>
@@ -140,6 +178,9 @@ namespace DatabaseLocal
             }
         }
     }
+    /// <summary>
+    /// added 2019/10/2
+    /// </summary>
     [Serializable]
     public class Hashtable
     {
