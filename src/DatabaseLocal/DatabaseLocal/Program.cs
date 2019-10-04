@@ -108,7 +108,15 @@ namespace DatabaseLocal
                 }
                 else if (strs.Length==1&&strs[0]=="save")
                 {
-                    Save2FileAsync();
+                    try
+                    {
+                        Save2FileAsync();
+                        ResponseAsync(outStream, "Saved!");
+                    }
+                    catch (Exception)
+                    {
+                        ResponseAsync(outStream, "Error!");
+                    }
                 }
                 else
                 {

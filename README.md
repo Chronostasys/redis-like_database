@@ -12,4 +12,8 @@
 # day three
 ------
 实现简单client，加入M、N配置值，  
-实现用户输入save时保存
+实现用户输入save时保存  
+  
+# day four
+------
+手动实现简单SDS，优化错误处理
