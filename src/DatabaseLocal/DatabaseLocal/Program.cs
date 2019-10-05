@@ -82,6 +82,8 @@ namespace DatabaseLocal
             var context = await listener.GetContextAsync();
             var inStream = context.Request.InputStream;
             var outStream = context.Response.OutputStream;
+            context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            context.Response.Headers.Add("Access-Control-Allow-Methods", "POST, GET");
             try
             {
                 var reader = new StreamReader(inStream);

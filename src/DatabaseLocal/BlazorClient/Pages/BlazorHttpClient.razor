@@ -1,0 +1,73 @@
+﻿@page "/client"
+@using ClientShared
+
+<h1>Query</h1>
+
+<input class="form-control" @oninput="SetUri" />
+
+<input class="form-control" @bind="s" />
+@if (addVal)
+{
+    <button class="btn btn-primary" @onclick="AddVal">Add val&&send</button>
+}
+else
+{
+    <button class="btn btn-primary" @onclick="Select">Select</button>
+    <button class="btn btn-primary" @onclick="AddKey">Add key</button>
+    <button class="btn btn-primary" @onclick="Delete">Delete</button>
+}
+@foreach (var item in logs)
+{
+    <p>@item</p>
+}
+
+@code {
+    int currentCount = 0;
+    List<string> logs;
+    Client client;
+    bool addVal;
+    string s;
+    string addS;
+    protected override void OnInitialized()
+    {
+        client = new Client();
+        logs = new List<string>();
+        addVal = false;
+    }
+    async Task AddKey()
+    {
+        addVal = true;
+        addS = $"set {s} ";
+    }
+    async Task AddVal()
+    {
+        addVal = false;
+        addS = addS + s;
+        logs.Add(addS);
+        var re = await client.PostAsync(addS);
+        logs.Add(re);
+    }
+    async Task Delete()
+    {
+        logs.Add($"delete {s}");
+        var re = await client.PostAsync(logs.LastOrDefault());
+        logs.Add(re);
+    }
+    async Task Select()
+    {
+        logs.Add($"get {s}");
+        var re = await client.PostAsync(logs.LastOrDefault());
+        if (re == null || re == "")
+        {
+            logs.Add("Nothing Found!");
+        }
+        else
+        {
+            logs.Add(re);
+        }
+    }
+    void SetUri(ChangeEventArgs args)
+    {
+        client.SetUri(args.Value.ToString());
+    }
+}

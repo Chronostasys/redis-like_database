@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.0": {
       "DatabaseClient/1.0.0": {
+        "dependencies": {
+          "ClientShared": "1.0.0"
+        },
         "runtime": {
           "DatabaseClient.dll": {}
+        }
+      },
+      "ClientShared/1.0.0": {
+        "runtime": {
+          "ClientShared.dll": {}
         }
       }
     }
   },
   "libraries": {
     "DatabaseClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ClientShared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

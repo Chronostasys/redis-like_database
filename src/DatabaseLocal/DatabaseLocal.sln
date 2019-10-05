@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29311.281
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLocal", "DatabaseLocal\DatabaseLocal.csproj", "{61E37D8A-7305-497A-A055-98142DCB47FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseLocal", "DatabaseLocal\DatabaseLocal.csproj", "{61E37D8A-7305-497A-A055-98142DCB47FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseClient", "DatabaseClient\DatabaseClient.csproj", "{6F7B4A51-C354-4F40-9D0B-A3A6BD5881A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseClient", "DatabaseClient\DatabaseClient.csproj", "{6F7B4A51-C354-4F40-9D0B-A3A6BD5881A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorClient", "BlazorClient\BlazorClient.csproj", "{126B75D6-2B66-4EB4-B604-4CD30F9E5C21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientShared", "ClientShared\ClientShared.csproj", "{01EC68AB-FFAF-4C0D-A6EB-CC998B2745F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{6F7B4A51-C354-4F40-9D0B-A3A6BD5881A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F7B4A51-C354-4F40-9D0B-A3A6BD5881A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F7B4A51-C354-4F40-9D0B-A3A6BD5881A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{126B75D6-2B66-4EB4-B604-4CD30F9E5C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126B75D6-2B66-4EB4-B604-4CD30F9E5C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126B75D6-2B66-4EB4-B604-4CD30F9E5C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126B75D6-2B66-4EB4-B604-4CD30F9E5C21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01EC68AB-FFAF-4C0D-A6EB-CC998B2745F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01EC68AB-FFAF-4C0D-A6EB-CC998B2745F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01EC68AB-FFAF-4C0D-A6EB-CC998B2745F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01EC68AB-FFAF-4C0D-A6EB-CC998B2745F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

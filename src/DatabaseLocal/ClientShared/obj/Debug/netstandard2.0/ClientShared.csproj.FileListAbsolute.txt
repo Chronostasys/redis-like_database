@@ -1,0 +1,8 @@
+D:\VS\冰岩\Database\src\DatabaseLocal\ClientShared\bin\Debug\netstandard2.0\ClientShared.deps.json
+D:\VS\冰岩\Database\src\DatabaseLocal\ClientShared\bin\Debug\netstandard2.0\ClientShared.dll
+D:\VS\冰岩\Database\src\DatabaseLocal\ClientShared\bin\Debug\netstandard2.0\ClientShared.pdb
+D:\VS\冰岩\Database\src\DatabaseLocal\ClientShared\obj\Debug\netstandard2.0\ClientShared.AssemblyInfoInputs.cache
+D:\VS\冰岩\Database\src\DatabaseLocal\ClientShared\obj\Debug\netstandard2.0\ClientShared.AssemblyInfo.cs
+D:\VS\冰岩\Database\src\DatabaseLocal\ClientShared\obj\Debug\netstandard2.0\ClientShared.dll
+D:\VS\冰岩\Database\src\DatabaseLocal\ClientShared\obj\Debug\netstandard2.0\ClientShared.pdb
+D:\VS\冰岩\Database\src\DatabaseLocal\ClientShared\obj\Debug\netstandard2.0\ClientShared.csprojAssemblyReference.cache

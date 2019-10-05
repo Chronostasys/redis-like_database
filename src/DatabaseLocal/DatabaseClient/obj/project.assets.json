@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.0": {}
+    ".NETCoreApp,Version=v3.0": {
+      "ClientShared/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/ClientShared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClientShared.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ClientShared/1.0.0": {
+      "type": "project",
+      "path": "../ClientShared/ClientShared.csproj",
+      "msbuildProject": "../ClientShared/ClientShared.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.0": []
+    ".NETCoreApp,Version=v3.0": [
+      "ClientShared >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\17697\\.nuget\\packages\\": {},
@@ -40,7 +59,11 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\VS\\冰岩\\Database\\src\\DatabaseLocal\\ClientShared\\ClientShared.csproj": {
+              "projectPath": "D:\\VS\\冰岩\\Database\\src\\DatabaseLocal\\ClientShared\\ClientShared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -66,7 +89,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100-rc1-014190\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
