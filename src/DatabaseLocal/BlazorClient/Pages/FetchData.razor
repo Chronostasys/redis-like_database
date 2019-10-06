@@ -33,13 +33,29 @@ else
         </tbody>
     </table>
 }
+@if (Users.Count == 0)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    foreach (var item in Users)
+    {
+        <p>@item</p>
+    }
+}
+
 
 @code {
+    //dreamofaliceclubContext context;
     WeatherForecast[] forecasts;
+    List<string> Users = new List<string>();
 
     protected override async Task OnInitializedAsync()
     {
+        //context = new dreamofaliceclubContext(new Microsoft.EntityFrameworkCore.DbContextOptions<dreamofaliceclubContext>());
         forecasts = await Http.GetJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        //Users = context.AspNetUsers.Select(u=>u.UserName).ToList();
     }
 
     public class WeatherForecast

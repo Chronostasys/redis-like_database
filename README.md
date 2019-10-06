@@ -20,4 +20,9 @@
   
 # day five  
 ------  
-添加blazor assembly查询前端
+添加blazor assembly查询前端  
+  
+# day six  
+-------  
+blazor客户端整合入网站进行托管  
+美化前端

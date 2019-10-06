@@ -11,3 +11,8 @@ D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseLocal\obj\Debug\netcoreapp3.0\Da
 D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseLocal\obj\Debug\netcoreapp3.0\DatabaseLocal.pdb
 D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseLocal\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
 D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseLocal\obj\Debug\netcoreapp3.0\DatabaseLocal.csproj.CopyComplete
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseLocal\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseLocal\obj\Debug\netcoreapp3.0\staticwebassets\DatabaseLocal.StaticWebAssets.Manifest.cache
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseLocal\obj\Debug\netcoreapp3.0\staticwebassets\DatabaseLocal.StaticWebAssets.xml
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseLocal\obj\Debug\netcoreapp3.0\DatabaseLocal.MvcApplicationPartsAssemblyInfo.cache
+D:\VS\冰岩\Database\src\DatabaseLocal\DatabaseLocal\obj\Debug\netcoreapp3.0\DatabaseLocal.RazorTargetAssemblyInfo.cache

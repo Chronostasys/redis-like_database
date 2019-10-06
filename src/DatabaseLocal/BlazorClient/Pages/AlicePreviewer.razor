@@ -1,0 +1,85 @@
+﻿<h3 class="offset-2">AlicePreviewer</h3>
+@{ 
+    parts = JsonConvert.DeserializeObject<List<Text>>(stringBuilder.ToString());
+}
+
+
+<div>
+    <div class="row">
+        <div id="preview" class="col-8 offset-1" style="border: thin solid;border-color:burlywood;background-color:aliceblue;border-radius:4px;">
+            <div data-spy="scroll" data-target="#AliceNav" data-offset="0">
+                @foreach (var item in parts)
+                {
+                    if (item.TextType == textType.img)
+                    {
+                        <input id="imghide@(parts.IndexOf(item))" hidden="hidden" @onchange="e=> ImgChange(e, parts.IndexOf(item))"/>
+                    }
+                    <div class="">
+                        @((MarkupString)renderer.GetHtml(item, parts.IndexOf(item)).Item1)
+                    </div>
+                }
+            </div>
+        </div>
+        <div id="alicenav" class="col-2 ALICEnav">
+            <div id="AliceNav" class="container list-group align-content-end">
+                @foreach (var item in parts)
+                {
+                    if (item.TextType == textType.h1)
+                    {
+                        <a id="alicenavbtn" class="row col-12 ellip align-self-end list-group-item btn btn-outline-light list-group-item-action" href="#h@(parts.IndexOf(item))">
+                            @((MarkupString)renderer.GetHtml(item, parts.IndexOf(item)).Item2)
+                        </a>
+                    }
+                    else if (item.TextType == textType.h2)
+                    {
+                        <a id="alicenavbtn" class="row col-11 ellip align-self-end list-group-item btn btn-outline-light list-group-item-action" style="width:180px" href="#h@(parts.IndexOf(item))">
+                            @((MarkupString)renderer.GetHtml(item, parts.IndexOf(item)).Item2)
+                        </a>
+                    }
+                    else if (item.TextType == textType.h3)
+                    {
+                        <a id="alicenavbtn" class="row col-10 ellip align-self-end list-group-item btn-outline-light list-group-item-action" style="width:170px" href="#h@(parts.IndexOf(item))">
+                            @((MarkupString)renderer.GetHtml(item, parts.IndexOf(item)).Item2)
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<input hidden="hidden" @onload="Load" />
+@code {
+    public List<Text> parts { get; set; }
+    [Parameter]
+    public StringBuilder stringBuilder { get; set; }
+    [Inject]
+    IJSRuntime jSRuntime { get; set; }
+    private EditerRenderer renderer = new EditerRenderer();
+    private void ImgChange(ChangeEventArgs e, int id)
+    {
+        parts[id].InText = e.Value.ToString();
+    }
+    void Load()
+    {
+        jSRuntime.InvokeVoidAsync("blazorJsFunctions.device");
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
+         jSRuntime.InvokeVoidAsync("blazorJsFunctions.device");
+    }
+    protected override void OnInitialized()
+    {
+        if (stringBuilder==null)
+        {
+            stringBuilder = new StringBuilder(10000);
+        }
+        else
+        {
+            parts = JsonConvert.DeserializeObject<List<Text>>(stringBuilder.ToString());
+        }
+        if (parts==null)
+        {
+            parts = new List<Text>() { new Text() };
+        }
+    }
+}

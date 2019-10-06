@@ -18,6 +18,11 @@ namespace ClientShared
         {
             HttpClient = new HttpClient();
         }
+        public async Task<bool> TestConnection()
+        {
+            var re = await HttpClient.GetAsync(uri);
+            return re.IsSuccessStatusCode;
+        }
         public HttpClient HttpClient { get; }
         public async Task<string> PostAsync(string uri, string msg)
         {

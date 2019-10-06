@@ -2,6 +2,31 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "ColorCode.Core/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ColorCode.Core.dll": {}
+        }
+      },
+      "ColorCode.HTML/2.0.6": {
+        "type": "package",
+        "dependencies": {
+          "ColorCode.Core": "2.0.6",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/ColorCode.HTML.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ColorCode.HTML.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -135,6 +160,30 @@
           "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration/3.0.0-preview8.19405.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.0.0-preview8.19405.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/3.0.0-preview8.19405.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.0.0-preview8.19405.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Extensions.DependencyInjection/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -240,6 +289,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Newtonsoft.Json/12.0.3-beta2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "System.Buffers/4.5.0": {
         "type": "package",
         "compile": {
@@ -332,6 +390,19 @@
           "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll": {}
         }
       },
+      "BlazorShared/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "ColorCode.HTML": "2.0.6"
+        },
+        "compile": {
+          "bin/placeholder/BlazorShared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BlazorShared.dll": {}
+        }
+      },
       "ClientShared/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -345,6 +416,32 @@
     }
   },
   "libraries": {
+    "ColorCode.Core/2.0.6": {
+      "sha512": "Fn3CE3fyeql2Vj7+0H4QTAlceWsQvas3flzE2dRJ7JW6XBmPUR/zx69XhX0HPcDzoelfy2qh/wgG3rjDzqu2BQ==",
+      "type": "package",
+      "path": "colorcode.core/2.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "colorcode.core.2.0.6.nupkg.sha512",
+        "colorcode.core.nuspec",
+        "lib/netstandard1.4/ColorCode.Core.dll",
+        "lib/netstandard1.4/ColorCode.Core.pdb"
+      ]
+    },
+    "ColorCode.HTML/2.0.6": {
+      "sha512": "NA8Gdp75X3hACXxyZFZ0yr0Ohl+7fc2UkLNovRbZUhu1AnLzsimrKHxl0LKEOhrxQZIuCT8r3qg+IlDPxoOHbg==",
+      "type": "package",
+      "path": "colorcode.html/2.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "colorcode.html.2.0.6.nupkg.sha512",
+        "colorcode.html.nuspec",
+        "lib/netstandard1.4/ColorCode.HTML.dll",
+        "lib/netstandard1.4/ColorCode.HTML.pdb"
+      ]
+    },
     "Microsoft.AspNetCore.Authorization/3.0.0": {
       "sha512": "pylAplpaC5r3YIh2OR4RcYCSYoMc/sZwHyGeyT43IbSMN+TqvO05pAybaFcNxPeZ+HxDP2LcRO/R1XHSCB2GKw==",
       "type": "package",
@@ -902,6 +999,32 @@
         "version.txt"
       ]
     },
+    "Microsoft.Extensions.Configuration/3.0.0-preview8.19405.4": {
+      "sha512": "YK8U1AqfzBRzawldKSH6nsdRb6pX6wX4GTd3qbrMNdXrOQKM+SGbugJOxmc84bm/1aRwIshGXnn3sOZpwYa8oQ==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration/3.0.0-preview8.19405.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
+        "microsoft.extensions.configuration.3.0.0-preview8.19405.4.nupkg.sha512",
+        "microsoft.extensions.configuration.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/3.0.0-preview8.19405.4": {
+      "sha512": "Z47WDVU3oVJtvxEhJxTO6Ld2RrOJUyuzqCLmt9ThmtC3JKvePkaN+W897d9oXhoQcpkxPH/hFU0s56zstjyt9g==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.abstractions/3.0.0-preview8.19405.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "microsoft.extensions.configuration.abstractions.3.0.0-preview8.19405.4.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.nuspec"
+      ]
+    },
     "Microsoft.Extensions.DependencyInjection/3.0.0": {
       "sha512": "yDsuNA/BT4j9qrcRs0NUNHQAJfywFWX18ZZ+shxXJL+/nIfz3vhuRTfnYgvFeQlNBlgmgdSjOcs4ajgoS6Q/Ng==",
       "type": "package",
@@ -1144,6 +1267,37 @@
         "lib/netstandard1.0/_._",
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/12.0.3-beta2": {
+      "sha512": "CNkBl+FKCsp1Tw7MKCpSOCKfZIElxOOBhG46VnFV2G0hRCC1Cc2UUJDknETNGeymXN1/k6hxd44uGVZvdwyEsQ==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3-beta2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.3-beta2.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
       ]
     },
     "System.Buffers/4.5.0": {
@@ -1434,6 +1588,11 @@
         "version.txt"
       ]
     },
+    "BlazorShared/1.0.0": {
+      "type": "project",
+      "path": "../../../../../c#/DreamOfAlice.club/BlazorShared/BlazorShared.csproj",
+      "msbuildProject": "../../../../../c#/DreamOfAlice.club/BlazorShared/BlazorShared.csproj"
+    },
     "ClientShared/1.0.0": {
       "type": "project",
       "path": "../ClientShared/ClientShared.csproj",
@@ -1442,12 +1601,15 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "BlazorShared >= 1.0.0",
       "ClientShared >= 1.0.0",
       "Microsoft.AspNetCore.Blazor >= 3.0.0-preview9.19465.2",
       "Microsoft.AspNetCore.Blazor.Build >= 3.0.0-preview9.19465.2",
       "Microsoft.AspNetCore.Blazor.DevServer >= 3.0.0-preview9.19465.2",
       "Microsoft.AspNetCore.Blazor.HttpClient >= 3.0.0-preview9.19465.2",
-      "NETStandard.Library >= 2.0.3"
+      "Microsoft.Extensions.Configuration >= 3.0.0-preview8.19405.4",
+      "NETStandard.Library >= 2.0.3",
+      "Newtonsoft.Json >= 12.0.3-beta2"
     ]
   },
   "packageFolders": {
@@ -1484,6 +1646,9 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
+            "D:\\VS\\c#\\DreamOfAlice.club\\BlazorShared\\BlazorShared.csproj": {
+              "projectPath": "D:\\VS\\c#\\DreamOfAlice.club\\BlazorShared\\BlazorShared.csproj"
+            },
             "D:\\VS\\冰岩\\Database\\src\\DatabaseLocal\\ClientShared\\ClientShared.csproj": {
               "projectPath": "D:\\VS\\冰岩\\Database\\src\\DatabaseLocal\\ClientShared\\ClientShared.csproj"
             }
@@ -1517,11 +1682,19 @@
             "target": "Package",
             "version": "[3.0.0-preview9.19465.2, )"
           },
+          "Microsoft.Extensions.Configuration": {
+            "target": "Package",
+            "version": "[3.0.0-preview8.19405.4, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[12.0.3-beta2, )"
           }
         },
         "imports": [

@@ -1,0 +1,140 @@
+﻿@page "/editor"
+<h3 class="offset-2">AliceEditor</h3>
+@using dreamofalice.club.Models.Blogs
+@render
+
+
+<div class="container border-primary">
+    @foreach (var item in parts)
+    {
+        <div class="row">
+            <select class="form-control col-4" @bind="parts[parts.IndexOf(item)].TextType">
+                @foreach (var template in Enum.GetValues(typeof(textType)))
+                {
+                    <option value=@template>@template</option>
+                }
+            </select>
+            @if (parts[parts.IndexOf(item)].TextType == textType.h1
+|| parts[parts.IndexOf(item)].TextType == textType.h2
+|| parts[parts.IndexOf(item)].TextType == textType.h3
+|| parts[parts.IndexOf(item)].TextType == textType.p)
+            {
+                <button class="btn-outline-dark col-1 btn" @onclick="e => ClickB(parts.IndexOf(item))">
+                    B
+                </button>
+                <button class="btn-outline-dark col-1 btn" @onclick="e => ClickI(parts.IndexOf(item))">
+                    I
+                </button>
+            }
+        </div>
+        @if (parts[parts.IndexOf(item)].TextType == textType.img)
+        {
+            <input id="@parts.IndexOf(item)" class="form-control row col-8"
+                   type="file"
+                   @onchange="Change"
+                   accept="image/*" />
+        }
+        else
+        {
+            <textarea placeholder="拖动右下角改变大小，编辑完后点击空白处预览" id="text@(parts.IndexOf(item))"
+                      @bind="parts[parts.IndexOf(item)].InText"
+                      class="form-control row col-8"></textarea>
+        }
+        <div class="btn-group-sm">
+            <button class="btn btn-sm btn-outline-primary" @onclick="e => Add(parts.IndexOf(item))">Add</button>
+            <button class="btn btn-sm btn-outline-danger" @onclick="e => Delete(parts.IndexOf(item))">Delete</button>
+        </div>
+    }
+</div>
+
+
+
+
+<AlicePreviewer stringBuilder="stringBuilder"></AlicePreviewer>
+@{
+    stringBuilder.Clear();
+    stringBuilder.Append(JsonConvert.SerializeObject(parts));
+}
+
+<input hidden="hidden" name="Content" value="@(stringBuilder.ToString())" />
+
+@code {
+    /// <summary>
+    /// This component is created by Alice
+    /// 2019/9/25 create
+    /// </summary>
+    public List<Text> parts { get; set; }
+    [Parameter]
+    public StringBuilder stringBuilder { get; set; }
+    RenderFragment render;
+    [Inject]
+    IJSRuntime jSRuntime { get; set; }
+    System.Security.Claims.ClaimsPrincipal claims;
+    protected override void OnInitialized()
+    {
+        if (stringBuilder == null)
+        {
+            stringBuilder = new StringBuilder(10000);
+        }
+        else
+        {
+            parts = JsonConvert.DeserializeObject<List<Text>>(stringBuilder.ToString());
+        }
+        jSRuntime.InvokeAsync<string>("blazorJsFunctions.init");
+        if (parts == null)
+        {
+            parts = new List<Text>() { new Text() };
+        }
+    }
+    private void Delete(int id)
+    {
+        parts.RemoveAt(id);
+    }
+    private void Focus()
+    {
+        jSRuntime.InvokeAsync<string>("blazorJsFunctions.log");
+    }
+    private async Task ClickB(int id)
+    {
+        parts[id].InText += "|b此处加粗b|";
+    }
+    private async Task ClickI(int id)
+    {
+        parts[id].InText += "|i此处斜体i|";
+    }
+    private void Add(int id)
+    {
+        parts.Insert(id + 1, new Text());
+    }
+    private async Task Change(ChangeEventArgs args)
+    {
+        for (int i = 0; i < parts.Count; i++)
+        {
+            if (parts[i].TextType == textType.img)
+            {
+                try
+                {
+                    await jSRuntime.InvokeAsync<string>("blazorJsFunctions.getImgString", $"{i}");
+                    await Task.Delay(1000);
+                    parts[i].InText = await jSRuntime.InvokeAsync<string>("blazorJsFunctions.getHideString", $"{i}");
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+    }
+    private void Render()
+    {
+        render = b =>
+        {
+            //b.OpenElement(1, "h1");
+
+            b.AddContent(1, "Hi!");
+            b.CloseElement();
+        };
+
+    }
+
+
+}

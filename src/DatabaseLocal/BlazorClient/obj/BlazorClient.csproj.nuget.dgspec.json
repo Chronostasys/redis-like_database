@@ -4,6 +4,71 @@
     "D:\\VS\\冰岩\\Database\\src\\DatabaseLocal\\BlazorClient\\BlazorClient.csproj": {}
   },
   "projects": {
+    "D:\\VS\\c#\\DreamOfAlice.club\\BlazorShared\\BlazorShared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\VS\\c#\\DreamOfAlice.club\\BlazorShared\\BlazorShared.csproj",
+        "projectName": "BlazorShared",
+        "projectPath": "D:\\VS\\c#\\DreamOfAlice.club\\BlazorShared\\BlazorShared.csproj",
+        "packagesPath": "C:\\Users\\17697\\.nuget\\packages\\",
+        "outputPath": "D:\\VS\\c#\\DreamOfAlice.club\\BlazorShared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\17697\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/early-access/api": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "ColorCode.HTML": {
+              "target": "Package",
+              "version": "[2.0.6, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "D:\\VS\\冰岩\\Database\\src\\DatabaseLocal\\BlazorClient\\BlazorClient.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -33,6 +98,9 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
+              "D:\\VS\\c#\\DreamOfAlice.club\\BlazorShared\\BlazorShared.csproj": {
+                "projectPath": "D:\\VS\\c#\\DreamOfAlice.club\\BlazorShared\\BlazorShared.csproj"
+              },
               "D:\\VS\\冰岩\\Database\\src\\DatabaseLocal\\ClientShared\\ClientShared.csproj": {
                 "projectPath": "D:\\VS\\冰岩\\Database\\src\\DatabaseLocal\\ClientShared\\ClientShared.csproj"
               }
@@ -66,11 +134,19 @@
               "target": "Package",
               "version": "[3.0.0-preview9.19465.2, )"
             },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[3.0.0-preview8.19405.4, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3-beta2, )"
             }
           },
           "imports": [
@@ -145,6 +221,11 @@
           "assetTargetFallback": true,
           "warn": true,
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

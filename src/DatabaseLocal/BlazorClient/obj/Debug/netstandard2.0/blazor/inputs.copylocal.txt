@@ -1,3 +1,5 @@
+C:\Users\17697\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll
+C:\Users\17697\.nuget\packages\colorcode.html\2.0.6\lib\netstandard1.4\ColorCode.HTML.dll
 C:\Users\17697\.nuget\packages\microsoft.aspnetcore.authorization\3.0.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.dll
 C:\Users\17697\.nuget\packages\microsoft.aspnetcore.blazor\3.0.0-preview9.19465.2\lib\netstandard2.0\Microsoft.AspNetCore.Blazor.dll
 C:\Users\17697\.nuget\packages\microsoft.aspnetcore.blazor.httpclient\3.0.0-preview9.19465.2\lib\netstandard2.0\Microsoft.AspNetCore.Blazor.HttpClient.dll
@@ -6,6 +8,8 @@ C:\Users\17697\.nuget\packages\microsoft.aspnetcore.components.forms\3.0.0\lib\n
 C:\Users\17697\.nuget\packages\microsoft.aspnetcore.components.web\3.0.0\lib\netstandard2.0\Microsoft.AspNetCore.Components.Web.dll
 C:\Users\17697\.nuget\packages\microsoft.aspnetcore.metadata\3.0.0\lib\netstandard2.0\Microsoft.AspNetCore.Metadata.dll
 C:\Users\17697\.nuget\packages\microsoft.bcl.asyncinterfaces\1.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\17697\.nuget\packages\microsoft.extensions.configuration\3.0.0-preview8.19405.4\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll
+C:\Users\17697\.nuget\packages\microsoft.extensions.configuration.abstractions\3.0.0-preview8.19405.4\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\17697\.nuget\packages\microsoft.extensions.dependencyinjection\3.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\17697\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\3.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\17697\.nuget\packages\microsoft.extensions.logging.abstractions\3.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll
@@ -13,6 +17,7 @@ C:\Users\17697\.nuget\packages\microsoft.extensions.options\3.0.0\lib\netstandar
 C:\Users\17697\.nuget\packages\microsoft.extensions.primitives\3.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll
 C:\Users\17697\.nuget\packages\microsoft.jsinterop\3.0.0\lib\netstandard2.0\Microsoft.JSInterop.dll
 C:\Users\17697\.nuget\packages\mono.webassembly.interop\3.0.0\lib\netstandard2.0\Mono.WebAssembly.Interop.dll
+C:\Users\17697\.nuget\packages\newtonsoft.json\12.0.3-beta2\lib\netstandard2.0\Newtonsoft.Json.dll
 C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.buffers\4.5.0\lib\netstandard2.0\System.Buffers.dll
 C:\Users\17697\.nuget\packages\system.componentmodel.annotations\4.6.0\lib\netstandard2.0\System.ComponentModel.Annotations.dll
 C:\Users\17697\.nuget\packages\system.memory\4.5.3\lib\netstandard2.0\System.Memory.dll
@@ -21,4 +26,5 @@ C:\Users\17697\.nuget\packages\system.runtime.compilerservices.unsafe\4.6.0\lib\
 C:\Users\17697\.nuget\packages\system.text.encodings.web\4.6.0\lib\netstandard2.0\System.Text.Encodings.Web.dll
 C:\Users\17697\.nuget\packages\system.text.json\4.6.0\lib\netstandard2.0\System.Text.Json.dll
 C:\Users\17697\.nuget\packages\system.threading.tasks.extensions\4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll
+D:\VS\c#\DreamOfAlice.club\BlazorShared\bin\Debug\netstandard2.0\BlazorShared.dll
 D:\VS\冰岩\Database\src\DatabaseLocal\ClientShared\bin\Debug\netstandard2.0\ClientShared.dll
