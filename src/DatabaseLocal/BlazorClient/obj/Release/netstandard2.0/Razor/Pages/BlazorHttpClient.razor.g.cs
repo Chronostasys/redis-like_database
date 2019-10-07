@@ -44,6 +44,26 @@ using BlazorClient.Shared;
 
 #line default
 #line hidden
+#line 8 "D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\_Imports.razor"
+using dreamofalice.club.Models.Blogs;
+
+#line default
+#line hidden
+#line 9 "D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\_Imports.razor"
+using System.Text;
+
+#line default
+#line hidden
+#line 10 "D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\_Imports.razor"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#line 11 "D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\_Imports.razor"
+using System.IO;
+
+#line default
+#line hidden
 #line 2 "D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\Pages\BlazorHttpClient.razor"
 using ClientShared;
 

@@ -39,7 +39,7 @@ namespace DatabaseLocal
         /// <param name="s">字符串</param>
         public SDS(int len, string s)
         {
-            if (len<s.Length)
+            if (len>s.Length)
             {
                 mysds = new sds(len, s.Length);
             }
@@ -66,9 +66,32 @@ namespace DatabaseLocal
                 mysds.s[i] = s[i];
             }
         }
+        /// <summary>
+        /// 转换为标准string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return mysds.s.ToString();
+            return new string(mysds.s);
+        }
+        public void Append(string s)
+        {
+            if (mysds.free < s.Length)
+            {
+                var copy = mysds.s;
+                mysds.s = new char[(s.Length+mysds.len) * 2];
+                for (int i = 0; i < copy.Length; i++)
+                {
+                    mysds.s[i] = copy[i];
+                }
+            }
+            var len = mysds.len;
+            mysds.len = s.Length + mysds.len;
+            mysds.free = mysds.s.Length - mysds.len;
+            for (int i = 0; i < s.Length; i++)
+            {
+                mysds.s[len + i] = s[i];
+            }
         }
     }
 }

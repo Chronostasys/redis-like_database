@@ -90,9 +90,10 @@ D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\st
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\staticwebassets\BlazorClient.StaticWebAssets.xml
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\BlazorClient.RazorComponent.input.cache
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\RazorDeclaration\App.razor.g.cs
-D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\RazorDeclaration\Pages\AliceEditor.razor.g.cs
-D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\RazorDeclaration\Pages\AlicePreviewer.razor.g.cs
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\RazorDeclaration\Pages\BlazorHttpClient.razor.g.cs
+D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\RazorDeclaration\Pages\blog\AliceEditor.razor.g.cs
+D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\RazorDeclaration\Pages\blog\AlicePreviewer.razor.g.cs
+D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\RazorDeclaration\Pages\blog\BlogIndex.razor.g.cs
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\RazorDeclaration\Pages\FetchData.razor.g.cs
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\RazorDeclaration\Pages\Index.razor.g.cs
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
@@ -104,9 +105,10 @@ D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Bl
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\BlazorClient.TagHelpers.output.cache
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\BlazorClient.RazorCoreGenerate.cache
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Razor\App.razor.g.cs
-D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Razor\Pages\AliceEditor.razor.g.cs
-D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Razor\Pages\AlicePreviewer.razor.g.cs
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Razor\Pages\BlazorHttpClient.razor.g.cs
+D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Razor\Pages\blog\AliceEditor.razor.g.cs
+D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Razor\Pages\blog\AlicePreviewer.razor.g.cs
+D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Razor\Pages\blog\BlogIndex.razor.g.cs
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Razor\Pages\FetchData.razor.g.cs
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Razor\Pages\Index.razor.g.cs
 D:\VS\冰岩\Database\src\DatabaseLocal\BlazorClient\obj\Debug\netstandard2.0\Razor\Shared\MainLayout.razor.g.cs

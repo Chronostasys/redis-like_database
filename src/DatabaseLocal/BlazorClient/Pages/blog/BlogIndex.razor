@@ -1,0 +1,170 @@
+﻿@*@inject IJSRuntime jSRuntime
+
+<h3>Index</h3>
+@if (index)
+{
+    <a @onclick="b => Add()" class="btn btn-outline-info col-1" style="text-overflow:ellipsis;text-align:center;">添加</a>
+    try
+    {
+        foreach (var item in blogModels)
+        {
+            <div class="btn-group col-12" role="group">
+                <a @onclick="() => { index = false;edit = false;add = false;content.Clear();
+                                 content.Append(item.Content);blog = item; }" class="btn btn-light border-dark col-10">
+                    <div class="row" style="margin:10px;">
+                        <h5>
+                            @item.Topic&nbsp;star:@item.Stared
+                        </h5>
+                    </div>
+                </a>
+            </div>
+        }
+    }
+    catch (Exception)
+    {
+    }
+}
+else if (edit)
+{
+    <span>文章题目：</span>
+    <input class="form-control " @bind="blog.Topic" />
+    <AliceEditor stringBuilder="content"></AliceEditor>
+    <button class="btn btn-outline-primary" @onclick="SaveAsync">保存</button>
+    <button class="btn btn-outline-primary" @onclick="Back">Back</button>
+}
+else if (add)
+{
+    <span>文章题目：</span>
+    <input class="form-control " @bind="blog.Topic" />
+    <AliceEditor stringBuilder="content"></AliceEditor>
+    <button class="btn btn-outline-primary" @onclick="SaveAsync">保存</button>
+    <button class="btn btn-outline-primary" @onclick="Back">Back</button>
+}
+else
+{
+    <h1 class="text-center">@blog.Topic</h1>
+    <AlicePreviewer stringBuilder="content"></AlicePreviewer>
+    <button class="btn btn-outline-primary" @onclick="Back">Back</button>
+    try
+    {
+        if (aliceContext.BlogUserRelations.Where(r => r.BlogId == blog.BlogId).Select(r => r.UserId).Contains(user.Id))
+        {
+            <a class="btn btn-outline-danger col-1" @onclick="b => Delete(blog)" style="text-overflow:ellipsis;text-align:center;"> 删除 </a>
+            <a @onclick="b => NavEdit(blog)" class="btn btn-outline-warning col-1" style="text-overflow:ellipsis;text-align:center;">修改</a>
+        }
+    }
+    catch (Exception)
+    {
+    }
+}
+
+
+
+@code {
+
+    dreamofaliceclubUser user;
+    List<BlogModel> blogModels;
+    BlogModel blog;
+    BlogUserRelation relation = new BlogUserRelation();
+    bool index = true;
+    bool edit = false;
+    bool add = false;
+    StringBuilder content = new StringBuilder(10000);
+    protected override async Task OnInitializedAsync()
+    {
+        authenticationState = await StateProvider.GetAuthenticationStateAsync();
+        user = await UserManager.GetUserAsync(authenticationState.User);
+    }
+    protected override void OnInitialized()
+    {
+        try
+        {
+            blogModels = aliceContext.Blogs.ToList();
+        }
+        catch (Exception)
+        {
+        }
+    }
+    private async Task Delete(BlogModel blog)
+    {
+        blog.Content = content.ToString();
+        aliceContext.Remove(blog);
+        await aliceContext.SaveChangesAsync();
+        Back();
+    }
+    private void Back()
+    {
+        index = true;
+        add = false;
+        edit = false;
+        OnInitialized();
+    }
+    private async Task SaveAsync()
+    {
+        if (blog.Topic == null || blog.Topic == "")
+        {
+            blog.Topic = "NoTitle";
+        }
+        blog.Content = content.ToString();
+        try
+        {
+            var a = aliceContext.Update(blog);
+            await aliceContext.SaveChangesAsync();
+            try
+            {
+                relation.BlogId = a.Entity.BlogId;
+                relation.UserId = user.Id;
+                await aliceContext.AddAsync(relation);
+                await aliceContext.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+            }
+        }
+        catch (Exception)
+        {
+        }
+        //try
+        //{
+        //    var a = await aliceContext.AddAsync(blog);
+        //    relation.BlogId = a.Entity.BlogId;
+        //    relation.UserId = user.Id;
+        //    await aliceContext.AddAsync(relation);
+        //}
+        //catch (Exception)
+        //{
+        //}
+        index = true;
+        add = false;
+        edit = false;
+        OnInitialized();
+    }
+    private async Task NavEdit(BlogModel b)
+    {
+        content.Clear();
+        content.Append(b.Content);
+        blog = b;
+        index = false;
+        add = false;
+        edit = true;
+    }
+    private void Add()
+    {
+        if (authenticationState.User.IsInRole("User"))
+        {
+            content.Clear();
+            blog = new BlogModel();
+            index = false;
+            add = true;
+            edit = false;
+        }
+        else
+        {
+            Warn();
+        }
+    }
+    private void Warn()
+    {
+        jSRuntime.InvokeVoidAsync("blazorJsFunctions.warn");
+    }
+}*@

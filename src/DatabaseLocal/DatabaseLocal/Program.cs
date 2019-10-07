@@ -12,6 +12,7 @@ namespace DatabaseLocal
     {
         static async Task Main(string[] args)
         {
+            LinkList<int> li = new LinkList<int>();
             Server server = new Server();
             while (true)
             {
@@ -71,6 +72,7 @@ namespace DatabaseLocal
         /// <returns></returns>
         public async Task BuildServer()
         {
+            var sds = new SDS(100, "");
             if (i==N)
             {
                 this.Save2FileAsync();
@@ -87,62 +89,76 @@ namespace DatabaseLocal
             try
             {
                 var reader = new StreamReader(inStream);
-                var s = reader.ReadToEnd();
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"receive:{s}");
-                var strs = s.Split(' ');
-                if (strs[0] == "set")
+                while (true)
                 {
-                    if (strs.Length != 3)
+                    var s = await reader.ReadLineAsync();
+                    if (s==null)
                     {
-                        ResponseAsync(outStream, " Illegal Input");
+                        ResponseAsync(outStream, sds.ToString());
                     }
-                    else
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"receive:{s}");
+                    var strs = s.Split(' ');
+                    if (strs[0] == "set")
                     {
-                        hashtable.Add(strs[1], strs[2]);
-                        ResponseAsync(outStream, "ok!");
-                        i++;
+                        if (strs.Length != 3)
+                        {
+                            sds.Append("Illegal Input\r\n");
+                            //ResponseAsync(outStream, " Illegal Input");
+                        }
+                        else
+                        {
+                            hashtable.Add(strs[1], strs[2]);
+                            sds.Append("ok!\r\n");
+                            //ResponseAsync(outStream, "ok!");
+                            i++;
+                        }
                     }
-                }
-                else if (strs.Length != 2)
-                {
-                    ResponseAsync(outStream, " Illegal Input");
-                }
-                else if (strs.Length==1&&strs[0]=="save")
-                {
-                    try
+                    else if (strs.Length != 2)
                     {
-                        Save2FileAsync();
-                        ResponseAsync(outStream, "Saved!");
+                        sds.Append("Illegal Input\r\n");
+                        //ResponseAsync(outStream, " Illegal Input");
                     }
-                    catch (Exception)
+                    else if (strs.Length == 1 && strs[0] == "save")
                     {
-                        ResponseAsync(outStream, "Error!");
-                    }
-                }
-                else
-                {
-                    if (strs[0] == "delete")
-                    {
-                        hashtable.Remove(strs[1]);
-                        ResponseAsync(outStream, "ok!");
-                        i++;
-                    }
-                    else if (strs[0] == "get")
-                    {
-                        var re = hashtable[strs[1]];
                         try
                         {
-                            await ResponseAsync(outStream, (string)re);
+                            Save2FileAsync();
+                            sds.Append("Saved\r\n");
+                            //ResponseAsync(outStream, "Saved!");
                         }
                         catch (Exception)
                         {
-
-                            await ResponseAsync(outStream, "Null!");
+                            sds.Append("Error!\r\n");
+                            //ResponseAsync(outStream, "Error!");
                         }
                     }
+                    else
+                    {
+                        if (strs[0] == "delete")
+                        {
+                            hashtable.Remove(strs[1]);
+                            sds.Append("ok!\r\n");
+                            //ResponseAsync(outStream, "ok!");
+                            i++;
+                        }
+                        else if (strs[0] == "get")
+                        {
+                            var re = hashtable[strs[1]];
+                            try
+                            {
+                                sds.Append((string)re+"\r\n");
+                                //await ResponseAsync(outStream, (string)re);
+                            }
+                            catch (Exception)
+                            {
+                                sds.Append("Null!\r\n");
+                                //await ResponseAsync(outStream, "Null!");
+                            }
+                        }
+                    }
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
-                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception e)
             {

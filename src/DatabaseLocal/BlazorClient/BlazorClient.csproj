@@ -22,8 +22,4 @@
     <ProjectReference Include="..\ClientShared\ClientShared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\blog\" />
-  </ItemGroup>
-
 </Project>
